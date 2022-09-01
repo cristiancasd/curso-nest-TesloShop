@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "777c5107-8980-4abc-afc3-79e8e91911ce",
+		"name": "TesloShopNEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20472507"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "products get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/products/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Cristian's shirt5\",\r\n    \"sizes\": [\"M\",\"L\"],\r\n    \"gender\": \"men\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "products update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"kate camisa\",\r\n    \"price\":4.7,\r\n    \"images\":[\"https:/8\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products/32063f5f-abfe-4689-a03e-93c3007c6fc7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"32063f5f-abfe-4689-a03e-93c3007c6fc7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products Borrar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/products/62fc27ef-d186-4ede-9181-94cdc64c7aab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"62fc27ef-d186-4ede-9181-94cdc64c7aab"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "filesUploads",
+			"item": [
+				{
+					"name": "agregar Imagen",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "file2",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/USUARIO/Pictures/cafeAmericano - copia.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/files/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"files",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Imagen",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "file2",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/USUARIO/Pictures/cablePoe.jpg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/files/product/1740176-00-A_0_2000.jpg",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"files",
+								"product",
+								"1740176-00-A_0_2000.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Add user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@mail.co\",\r\n    \"password\": \"Abc123\",\r\n    \"fullName\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@test.com\",\r\n    \"password\": \"Abc123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get private",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk3MzllOTc0LWNjYmMtNGIxZS04YjkwLTdlYzkwNWE5NDkyNCIsImlhdCI6MTY2MTg3NjIwNywiZXhwIjoxNjYxODgzNDA3fQ.8x1lb84JbS0GCjzq7UO7Hn35vBSMoBcJXmiruEIvD48",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/auth/private/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"private",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check-auth-status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFkYjM0YjY5LTdhNDEtNDJmNC04YWIwLTAyOTExYTEyMzE1ZSIsImlhdCI6MTY2MTk2NTAxMywiZXhwIjoxNjYxOTcyMjEzfQ.D4C5dxZAA0pF5k8rXZmgPNv3Rzw4NgfAazMwesEaaz0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/auth/check-auth-status/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"check-auth-status",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seed get",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJlMjE2YjNkLTg5MWEtNDA1Yy04MGQ1LTgzYTk4MmNhNWRjMCIsImlhdCI6MTY2MTk2MjYxNywiZXhwIjoxNjYxOTY5ODE3fQ.V7g9jwa-YGlHoLFYbdopVCIq3h04lMsY6iKFc0RvYLs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/seed/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"seed",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
