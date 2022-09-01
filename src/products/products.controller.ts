@@ -30,7 +30,7 @@ export class ProductsController {
   @Get()
   findAll(@Query() paginationDto: PaginationDto ) {
     return this.productsService.findAll(paginationDto);
-  }
+  } 
 
   @Get(':term')
   findOne(@Param('term') term: string) {

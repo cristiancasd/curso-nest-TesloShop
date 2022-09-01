@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, SetMetadata } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { Auth } from './decorators/auth.decorator';
 import { GetUser } from './decorators/get-user.decorator';
@@ -29,6 +29,7 @@ export class AuthController {
   }
 
   @Get('private')
+  @ApiBearerAuth('JWT-auth')
   //@SetMetadata('roles',['admin','super-user'])
   @RoleProtected(ValidRoles.admin) //Decorador creado por nosotros
   @UseGuards(AuthGuard(), UserRoleGuard)
@@ -55,6 +56,7 @@ export class AuthController {
 
   //En vez de dos decoradores, solo voy a tener uno
   @Get('private2')
+  @ApiBearerAuth('JWT-auth')
   @Auth(ValidRoles.admin, ValidRoles.user) //Decorador creado, si está vacío, admite todos los roles
   testingPrivateRoute2(
     @GetUser(/*Aquí va la Data*/)user: User

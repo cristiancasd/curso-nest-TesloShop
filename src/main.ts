@@ -17,7 +17,20 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('Teslo RESTFUL API')
     .setDescription('Teslo shop endpoints')
+    //.setVersion('1.0')
+    //Configuracion para JWT
     .setVersion('1.0')
+    .addBearerAuth(
+      {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+        name: 'JWT',
+        description: 'Enter JWT token',
+        in: 'header',
+      },
+      'JWT-auth', // This name here is important for matching up with @ApiBearerAuth()in your controller!
+    )
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
